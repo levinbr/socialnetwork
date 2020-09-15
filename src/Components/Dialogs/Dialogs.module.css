@@ -1,0 +1,8 @@
+.dialogs {
+    padding:10px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.answer {
+    grid-column: 2/3;
+}

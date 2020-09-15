@@ -1,0 +1,13 @@
+.header {
+  grid-area: h;
+  background-color:rgb(124, 223, 223)
+}
+.header img{
+  width: 40px;
+}
+
+.loginData {
+  float: right;
+  padding: 10px 10px;
+  color: white;
+}
