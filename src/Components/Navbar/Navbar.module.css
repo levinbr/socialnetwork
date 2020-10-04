@@ -1,12 +1,17 @@
 .nav{
   padding:10px;
   grid-area: n;
-  background-color: rgb(141, 187, 224);
+  background-color: #bbdefb;
+  margin: 5px;
+  border-radius: 5px;
 }
 .item a{
-  color: white;
+  color: black;
   text-decoration: none;
 }
 .item a.activeLink {
   color: firebrick;
+}
+.item a:hover {
+  color: white;
 }

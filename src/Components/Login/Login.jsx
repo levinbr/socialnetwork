@@ -5,43 +5,49 @@ import {Elem} from "../common/FormControls/FormControls";
 import {connect} from "react-redux";
 import {login} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
-import styles from '../common/FormControls/FormConstrols.module.css';
+import s from './Login.module.css'
 
 const input = Elem("input")
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <div className={s['container']}>
             <div>
-                <Field placeholder={"email"}
-                       component={input}
-                       name={"email"}
-                       validate={[required]}/>
-            </div>
-            <div>
-                <Field type="password"
-                       placeholder={"Password"}
-                       component={input}
-                       name={"password"}
-                       validate={[required]}/>
-            </div>
-            <div>
-                <label>
-                    <Field type={"checkbox"}
-                           component={input}
-                           name={"rememberMe"}
-                    /> remember me
-                </label>
-            </div>
-            {props.error && <div className={ styles.formSummaryError }>
-                {props.error}
-            </div>
-            }
+                <h2> Login </h2>
+                <form classNames={s['body']} onSubmit={props.handleSubmit}>
+                    <div className={s['inputBox']}>
+                        <Field placeholder={"email"} component={input}
+                               name={"email"} validate={[required]} />
+                    </div>
+                    <div className={s['inputBox']}>
+                        <Field type="password" placeholder={"Password"} component={input}
+                               name={"password"} validate={[required]} />
+                    </div>
+                    <div className={s['checkBox']}>
+                        <label>
+                            <Field type={"checkbox"} component={input} name={"rememberMe"} /> remember me
+                        </label>
+                    </div>
+                    <div>
+                        {props.captcha && <img src={props.captcha} />}
+                        {props.captcha && <div className={s['inputBox']}>
+                            <Field placeholder={"symbols from image"} component={input}
+                                   name={"captcha"} validate={[required]}/>
+                        </div>
+                        }
+                    </div>
 
-            <div>
-                <button> SignIn </button>
+                    {props.error && <span className={ s['summary-error'] }>
+                    {props.error}
+                </span>
+                    }
+
+                    <div className={s['inputBox']}>
+                        <input type={'submit'} value={'SignIn'} />
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     )
 }
 
@@ -49,21 +55,21 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
 
     if (props.isAuth) {
         return <Redirect to={"/Profile"} />
     }
     return (
-        <div>
-            <h1>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit} />
-        </div>
+        <>
+            <LoginReduxForm onSubmit={onSubmit} captcha={props.captchaUrl}/>
+        </>
     )
 }
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 })
 
 export default connect(mapStateToProps, {login})(Login);
