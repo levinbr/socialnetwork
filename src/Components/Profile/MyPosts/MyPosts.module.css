@@ -1,0 +1,10 @@
+.container {
+    max-width: 500px;
+}
+.post-input span {
+    color: #e74c3c;
+}
+.post-input textarea{
+    min-height: 20px;
+    min-width: 100%;
+}

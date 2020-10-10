@@ -1,8 +1,32 @@
-.profileInfo {
+.profile {
     margin-top: 10px;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
 }
-.profileInfo img {
+.profile-status {
+    margin: 10px;
+    border-radius: 3px;
+    background: #e8eaf6;
+    padding: 5px;
+}
+.avatar {
+    vertical-align: top;
+    display: inline-block;
+    margin: 10px;
+ }
+.avatar .owner {
+    cursor: pointer;
+}
+.avatar .owner .owner-hide {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.avatar input{
+    display: block;
+}
+.profile img {
     width: 150px;
+}
+.profile-description {
+    display: inline-block;
+    margin: 10px;
 }

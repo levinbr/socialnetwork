@@ -3,13 +3,14 @@ import axios from "axios";
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+    //подписки https://social-network.samuraijs.com/api/1.0/users?count=10&page=1&friend=true
     headers: {
         "API-KEY": "6956d242-cdbb-4297-88a6-01654f489cf3"
     }
 });
 
 export const usersAPI = {
-    getUsers(usersCount = 1, currentPage= 10) {
+    getUsers(usersCount, currentPage) {
         return instance.get(`users?count=${usersCount}&page=${currentPage}`).then(res => {
             return res.data;
         });
