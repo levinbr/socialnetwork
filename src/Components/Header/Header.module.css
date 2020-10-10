@@ -1,13 +1,13 @@
 .header {
   grid-area: h;
-  background-color: #bbdefb;
-  margin: 5px;
+  background-color: white;
+  margin: 5px ;
   border-radius: 5px;
+  border: 1px solid #e0e0e0;
 }
 .header img{
   width: 60px;
 }
-
 .loginData {
   float: right;
   padding: 10px 10px;

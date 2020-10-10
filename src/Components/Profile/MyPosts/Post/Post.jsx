@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Post.module.css'
-
+import s from './Post.module.css'
+import userPhoto from '../../../../img/user.jpg'
 const Post = (props) => {
   return (
-      <div className={styles.post}>
-        <div className={styles.item}>
-          <img src='https://pm1.narvii.com/6889/74979d4d2744ec6e27995b6e866f091d04c0b40cr1-515-414v2_uhq.jpg' />
+      <div className={s.post}>
+        <div className={s.item}>
+          <img src={props.photoOwner || userPhoto} />
           {props.message}
         </div>
         <div>
