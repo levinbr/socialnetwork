@@ -1,17 +1,22 @@
+.item a div:hover {
+  background: #cd5c5c;
+  border-radius: 3px;
+  color: white;
+}
 .nav{
   padding:10px;
   grid-area: n;
-  background-color: #bbdefb;
-  margin: 5px;
+  background-color: white;
+  margin: 0px 5px 5px 5px;
   border-radius: 5px;
+  border: 1px solid #e0e0e0;
 }
 .item a{
   color: black;
   text-decoration: none;
 }
 .item a.activeLink {
-  color: firebrick;
+  color: #cd5c5c;
+  
 }
-.item a:hover {
-  color: white;
-}
+
