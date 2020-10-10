@@ -1,13 +1,12 @@
 import React from 'react';
-import s from './MyPosts.module.css'
+import Post from './Post/Post';
 import {Field, reduxForm} from "redux-form";
 import {maxLength, required} from "../../../utils/validators/validators";
 import {Elem} from "../../common/FormControls/FormControls";
-import PostContainer from "./Post/PostContainer";
 
 const MyPosts = (props) => {
   let newPosts = props.myPosts.map( post => {
-    return <PostContainer message={post.message} likes={post.likes}/>
+    return <Post message={post.message} likes={post.likes}/>
   });
 
   let addPost = (formData) => {
@@ -15,18 +14,19 @@ const MyPosts = (props) => {
   };
 
   return (
-        <div className={s['container']}>
-          <div className={s['post-input']}>
+        <div>
+          <div>
+              Что нового?
               <PostReduxForm onSubmit={addPost}/>
           </div>
-          <div className={s['posts']}>
+          <div>
             {newPosts}
           </div>
         </div>
   );
 }
 
-const maxLength100 = maxLength(100)
+const maxLength10 = maxLength(10)
 const Textarea2 = Elem("textarea")
 
 const PostForm = props => {
@@ -34,11 +34,11 @@ const PostForm = props => {
         <form onSubmit={props.handleSubmit}>
             <Field name={"newPost"}
                    component={Textarea2}
-                   validate={[required, maxLength100]}
-                   placeholder={`what's up?`}
-                    />
-            <button> Add post </button>
-
+                   validate={[required, maxLength10]}
+                   placeholder={'post message'}/>
+            <div>
+                <button> Add post </button>
+            </div>
         </form>
     )
 }

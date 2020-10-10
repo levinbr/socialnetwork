@@ -10,7 +10,10 @@ const ProfileDescriptionForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <button onClick={props.goToEditMode}> Save </button>
-            {props.error && <div className={ styles.formSummaryError }> {props.error} </div> }
+            {console.log(props)}
+            {props.error && <div className={ styles.formSummaryError }>
+                {props.error}
+            </div> }
 
             <div>
                 <b> Full name: </b>
@@ -26,18 +29,18 @@ const ProfileDescriptionForm = (props) => {
                 <b> My skills: </b>
                 <Field placeholder={'My skills'} component={textarea} name={'lookingForAJobDescription'} validate={[]}/>
             </div>
+            }
             <div>
                 <b> About me: </b>
                 <Field placeholder={'About me'} component={textarea} name={'aboutMe'} validate={[]}/>
             </div>
             <div>
-                <b> Contacts: </b>
-                { Object.keys(props.profile.contacts).map((key) => {
-                    return <div>
-                        <b> {key}: <Field placeholder={key} component={input}
-                                          name={'contacts.' + key}  validate={[]}/>  </b>
-                        </div>
-                 })}
+                <b> Contacts: </b> {Object.keys(props.profile.contacts).map((key) => {
+                return <div>
+                    <b> {key}: <Field placeholder={key} component={input}
+                                      name={'contacts.' + key}  validate={[]}/>  </b>
+                </div>
+            }) }
             </div>
         </form>
     )

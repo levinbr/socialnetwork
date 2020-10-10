@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import s from './ProfileInfo.module.css'
+import style from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusHook from "./ProfileStatusHook";
 import userPhoto from "../../../img/user.jpg";
@@ -21,33 +21,24 @@ const ProfileInfo = (props) => {
         props.saveProfileDescription(formData)
             //toDo: избавиться от then.
             .then(() => setEditMode(false))
+
     }
 
     return (
-        <div className={s['profile']}>
-            <div className={s['profile-status']}>
-                <ProfileStatusHook status={props.status} updateUserStatus={props.updateUserStatus}/>
-            </div>
-            <div className={s['avatar']}>
+        <div className={style.profileInfo}>
 
-                {props.isOwner ? <label className={s['owner']}>
-                                     <input className={s['owner-hide']} type={'file'} name="avatar" accept=".jpg, .jpeg, .png"
-                                             onChange={onAvatarPhotoSelected} />
-                                     <img src={props.profile.photos.large || userPhoto } />
-                                 </label>
-                               : <img src={props.profile.photos.large || userPhoto } />
-                }
+            <img src={props.profile.photos.large || userPhoto } />
+            {props.isOwner && <input type={'file'} onChange={onAvatarPhotoSelected} />}
 
-            </div>
-                <div className={s['profile-description']}>
-                    { editMode
-                        ? <ProfileDescriptionForm initialValues={props.profile} profile={props.profile}
-                                                  onSubmit={onSubmit}/>
-                        : <ProfileDescription profile={props.profile}
-                                              isOwner={props.isOwner}
-                                              goToEditMode={() => setEditMode(true)}/> }
-                </div>
+            { editMode
+                ? <ProfileDescriptionForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
+                : <ProfileDescription profile={props.profile}
+                                      isOwner={props.isOwner}
+                                      goToEditMode={() => setEditMode(true)}/> }
+
+            <ProfileStatusHook status={props.status} updateUserStatus={props.updateUserStatus}/>
         </div>
+
     )
 
 }

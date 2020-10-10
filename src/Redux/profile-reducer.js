@@ -9,13 +9,10 @@ const SAVE_AVATAR_PHOTO_SUCCESS = 'SAVE_AVATAR_PHOTO_SUCCESS';
 
 let initialState = {
     myPosts:[
-        {id: 5, message:`Дописать селекты-реселекты`,likes:'28'},
-        {id: 5, message:'Перенести стили на SASS, переименовать классы',likes:'150'},
-        {id: 5, message:'вынести контакты в отдельную компоненту. Сделать их в виде иконок',likes:'5'},
-        {id: 4, message:'Подключить formic',likes:'11'},
-        {id: 3, message:'Привет! я выучил React!',likes:'561'},
-        {id: 2, message:'Я люблю javascript',likes:'56'},
-        {id: 1, message:'УРААААА !!!!!!!!!!!!!!!!!',likes:'21'}
+        {message:'Привет! я выучил React!',likes:'28'},
+        {message:'Я люблю javascript',likes:'561'},
+        {message:'Хочу в отпуск!!!!',likes:'56'},
+        {message:'УРААААА Я ЭТО СДЕЛАЛЬ',likes:'21'}
     ],
     profile: null,
     status: ''

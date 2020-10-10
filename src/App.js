@@ -18,7 +18,7 @@ class App extends React.Component {
 
     catchAllUnhandledErrors = (reason, promise) => {
         //toDo: сделай компонент, который будет всплывать и показывать сбои в реквестах.
-        alert('Request error. Pls handle this', reason)
+        alert('Some error. Pls handle this', reason)
     }
 
     componentDidMount() {
@@ -37,9 +37,8 @@ class App extends React.Component {
 
         return (
             <div className='wrapper'>
-                <HeaderContainer />
-                <Navbar />
-
+                <HeaderContainer/>
+                <Navbar/>
                 <div className='wrapper-content'>
                     <Suspense fallback={<Preloader />}>
                         <Switch>
