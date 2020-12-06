@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatusHook from "./ProfileStatusHook";
+import ProfileStatusHook from "./ProfileStatus/ProfileStatusHook";
 import userPhoto from "../../../img/user.jpg";
-import ProfileDescriptionForm from "./ProfileDescriptionForm";
+import ProfileDescriptionForm from "./ProfileDescriptionForm/ProfileDescriptionForm";
+import ProfileContacts from "./ProfileContacts/ProfileContacts";
 
 
 const ProfileInfo = (props) => {
@@ -70,17 +71,13 @@ const ProfileDescription = (props) => {
             <div>
                 <b> About me: </b> {props.profile.aboutMe}
             </div>
-            <div>
-                <b> Contacts: </b> {Object.keys(props.profile.contacts).map((key) => {
-                return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
-            }) }
-            </div>
+
+            <ProfileContacts contacts={props.profile.contacts}/>
+
         </div>
     )
 }
 
 
-const Contact = ({contactTitle, contactValue}) => {
-    return <div> <b> {contactTitle} :</b> {contactValue} </div>
-}
+
 export default ProfileInfo;

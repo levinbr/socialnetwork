@@ -11,10 +11,11 @@ const input = Elem("input")
 
 const LoginForm = (props) => {
     return (
+
         <div className={s['container']}>
             <div>
                 <h2> Login </h2>
-                <form classNames={s['body']} onSubmit={props.handleSubmit}>
+                <form onSubmit={props.handleSubmit}>
                     <div className={s['inputBox']}>
                         <Field placeholder={"email"} component={input}
                                name={"email"} validate={[required]} />
@@ -23,10 +24,12 @@ const LoginForm = (props) => {
                         <Field type="password" placeholder={"Password"} component={input}
                                name={"password"} validate={[required]} />
                     </div>
-                    <div className={s['checkBox']}>
+                    <div className={s['ch']}>
+
                         <label>
-                            <Field type={"checkbox"} component={input} name={"rememberMe"} /> remember me
+                            <Field type='checkbox' component={input} name='rememberMe' /> remember me
                         </label>
+
                     </div>
                     <div>
                         {props.captcha && <img src={props.captcha} />}

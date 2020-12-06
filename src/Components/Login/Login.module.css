@@ -7,13 +7,19 @@
 
 }
 .container h2 {
-    border-left: 5px solid #e91e63
+    border-left: 5px solid #e91e63;
+    padding-left: 5px;
+
 }
 .container .inputBox {
     position: relative;
     width: 300px;
     height: 35px;
     margin-bottom: 35px;
+}
+
+.ch {
+    position: relative;
 }
 .container .checkBox {
     position: relative;

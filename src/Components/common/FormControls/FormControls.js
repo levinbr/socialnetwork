@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './FormConstrols.module.css';
+import s from './FormConstrols.module.css';
 export const Textarea = ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
-        <div className={styles.formControl + " " + (hasError ? styles.error : null) }>
+        <div className={s.formControl + " " + (hasError ? s.error : null) }>
             <div>
                 <textarea {...input} {...props} />
             </div>
@@ -17,10 +17,8 @@ export const Textarea = ({input, meta, ...props}) => {
 export const Elem = (Elem) => ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
-        <div className={styles.formControl + " " + (hasError ? styles.error : null) }>
-            <div>
-                <Elem {...input} {...props} />
-            </div>
+        <div className={s['control'] + " " + (hasError ? s['error'] : null) }>
+            <Elem {...input} {...props} />
             { hasError && <span> {meta.error} </span> }
         </div>
 

@@ -1,7 +1,8 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import {Elem} from "../../common/FormControls/FormControls";
-import styles from "../../common/FormControls/FormConstrols.module.css";
+import {Elem} from "../../../common/FormControls/FormControls";
+import styles from "../../../common/FormControls/FormConstrols.module.css";
+import ProfileContacts from "../ProfileContacts/ProfileContacts";
 
 const input = Elem("input")
 const textarea = Elem("textarea")
