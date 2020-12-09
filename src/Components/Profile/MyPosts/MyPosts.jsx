@@ -7,7 +7,7 @@ import PostContainer from "./Post/PostContainer";
 
 const MyPosts = (props) => {
   let newPosts = props.myPosts.map( post => {
-    return <PostContainer message={post.message} likes={post.likes}/>
+    return <PostContainer key={post.message} message={post.message} likes={post.likes}/>
   });
 
   let addPost = (formData) => {

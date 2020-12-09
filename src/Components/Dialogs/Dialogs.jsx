@@ -16,7 +16,6 @@ const Dialogs = (props) => {
         props.updateNewMessage(e.target.value);
     };
     let onAddMessage = (dataForm) => {
-        console.log(dataForm);
         props.addNewMessage(dataForm.textMessage);
     };
 
@@ -48,7 +47,7 @@ const NewMessageForm = (props) => {
                    validate={[required, maxLength15]}
             />
             <div>
-                <button> to answer </button>
+                <button> send </button>
             </div>
         </form>
     )

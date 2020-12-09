@@ -13,7 +13,7 @@ const User = (props) => {
                 <div className={cn(s['face'],s['face1']) }>
                     <div className={s['content']}>
                         <NavLink to={`/profile/${user.id}`}>
-                            <img src={user.photos.small || userPhoto}/>
+                            <img src={user.photos.small || userPhoto} alt={'user_photo'} />
                         </NavLink>
                         <h3> {user.name} </h3>
                     </div>
@@ -33,32 +33,6 @@ const User = (props) => {
         </div>
 
     )
-        {/* <div>
-                <span>
-                    <div>
-                        <NavLink to={`/profile/${user.id}`}>
-                            <img src={user.photos.small || userPhoto} className={styles.userPhoto}/>
-                        </NavLink>
-                    </div>
-                    <div>
-                        {user.followed
-                            ? <button disabled={props.followingProgress.some(id => id === user.id)} onClick={() => {
-                                    props.unFollow(user.id)
-                                }}> unfollow </button>
-                            : <button disabled={props.followingProgress.some(id => id === user.id)} onClick={() => {
-                                    props.follow(user.id)
-                                }}> follow </button>
-                         }
-                    </div>
-                </span>
-                <span>
-                    <div> {user.name} </div>
-                    <div> {user.status} </div>
-                    <div> {user.country + ', ' + user.city} </div>
-                    </span>
-            </div>
-            */}
-
 }
 
 export default User;

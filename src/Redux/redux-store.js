@@ -9,12 +9,12 @@ import { reducer as formReducer } from 'redux-form';
 import appReducer from "./app-reducer";
 
 let reducers = combineReducers({
+    form: formReducer,
     profilePage: profileReducer,
     dialogsPage: dialogReducer,
     sidebarPage: sidebarReducer,
     usersPage: usersReducers,
     auth: authReducer,
-    form: formReducer,
     app: appReducer
 });
 

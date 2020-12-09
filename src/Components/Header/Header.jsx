@@ -7,7 +7,7 @@ import logo from '../../img/logo.png'
 const Header = (props) => {
   return (
       <header className={s.header}>
-        <img src={logo} />
+        <img src={logo} alt={'logo'}/>
         <span> SAMURAI SOCIAL NETWORK </span>
         <div className={s.loginData}>
             {props.isAuth

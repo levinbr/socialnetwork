@@ -5,7 +5,7 @@ const Post = (props) => {
   return (
       <div className={s.post}>
         <div className={s.item}>
-          <img src={props.photoOwner || userPhoto} />
+          <img src={props.photoOwner || userPhoto} alt={'Photo_owner'}/>
           {props.message}
         </div>
         <div>

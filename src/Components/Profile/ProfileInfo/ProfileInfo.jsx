@@ -34,9 +34,9 @@ const ProfileInfo = (props) => {
                 {props.isOwner ? <label className={s['owner']}>
                                      <input className={s['owner-hide']} type={'file'} name="avatar" accept=".jpg, .jpeg, .png"
                                              onChange={onAvatarPhotoSelected} />
-                                     <img src={props.profile.photos.large || userPhoto } />
+                                     <img src={props.profile.photos.large || userPhoto } alt={'user_photo'} />
                                  </label>
-                               : <img src={props.profile.photos.large || userPhoto } />
+                               : <img src={props.profile.photos.large || userPhoto } alt={'user_photo'} />
                 }
 
             </div>

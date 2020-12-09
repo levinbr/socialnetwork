@@ -9,11 +9,11 @@ const SAVE_AVATAR_PHOTO_SUCCESS = 'SAVE_AVATAR_PHOTO_SUCCESS';
 
 let initialState = {
     myPosts:[
-        {id: 5, message:'вынести контакты в отдельную компоненту. Сделать их в виде иконок соцсетей',likes:'5'},
-        {id: 4, message:'Переписать на formic',likes:'11'},
-        {id: 3, message:'Привет! я выучил React!',likes:'5'},
-        {id: 2, message:'Я люблю javascript',likes:'56'},
-        {id: 1, message:'УРААААА !!!!!!!!!!!!!!!!!',likes:'21'}
+        {id: 5, message:'вынести контакты в отдельную компоненту. Сделать их в виде иконок соцсетей', likes:'5'},
+        {id: 4, message:'Переписать на formic', likes:'11'},
+        {id: 3, message:'Привет! я выучил React!', likes:'23'},
+        {id: 2, message:'Я люблю javascript', likes:'56'},
+        {id: 1, message:'УРААААА !!!!!!!!!!!!!!!!!', likes:'21'}
     ],
     profile: null,
     status: ''
