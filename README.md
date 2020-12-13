@@ -1,20 +1,16 @@
-The project was created for real samurai
+Социальная сеть для юных React разработчиков. На основе публичного API каждый может создавать
+свой UI и оттачивать новые технологии. Общение проходит в [телеграмм канале.](https://t.me/reactjs_samurai)
 
-## Available Script
+## Доступные команды:
 
-In the project directory, you can run:
-
+Для скачивания проекта используете:
+### `git clone`
+Для запуска
 ### `npm run start`
+После запуска будет доступен по адресу [http://localhost:3000](http://localhost:3000) 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) 
+## Публикация
 
-## Deployment
+Приложение развернуто по адресу - https://levinbr.github.io/socialnetwork/#/login
 
-https://levinbr.github.io/socialnetwork/#/login
-
-Section without authorization:
-- users
-- profile
-
-for authorization write me [@levinb](http://localhost:3000) 
+#### Некоторые разделы недоступны без авторизации. Для доступа напишите мне [в телеграмм](https://t.me/levinb) или [на почту](mailto:russianstuff@icloud.com)  
