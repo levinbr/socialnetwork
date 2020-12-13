@@ -6,6 +6,7 @@
 Для скачивания проекта используете:
 ### `git clone`
 Для запуска
+### `npm install`
 ### `npm run start`
 После запуска будет доступен по адресу [http://localhost:3000](http://localhost:3000) 
 
