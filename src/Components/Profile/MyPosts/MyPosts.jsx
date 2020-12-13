@@ -1,13 +1,14 @@
 import React from 'react';
 import s from './MyPosts.module.css'
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import {maxLength, required} from "../../../utils/validators/validators";
 import {Elem} from "../../common/FormControls/FormControls";
 import PostContainer from "./Post/PostContainer";
 
 const MyPosts = (props) => {
+
   let newPosts = props.myPosts.map( post => {
-    return <PostContainer key={post.message} message={post.message} likes={post.likes}/>
+    return <PostContainer key={post.id} message={post.message} likes={post.likes}/>
   });
 
   let addPost = (formData) => {
@@ -36,13 +37,20 @@ const PostForm = props => {
                    component={Textarea2}
                    validate={[required, maxLength100]}
                    placeholder={`what's up?`}
-                    />
+            />
             <button> Add post </button>
 
         </form>
     )
 }
 
-const PostReduxForm = reduxForm({form: 'addPost'})(PostForm);
+const afterSubmit = (result, dispatch) => {
+    dispatch(reset('addPost'));
+}
+const PostReduxForm = reduxForm({
+    form: 'addPost',
+    onSubmitSuccess: afterSubmit,
+})(PostForm);
+
 
 export default MyPosts;

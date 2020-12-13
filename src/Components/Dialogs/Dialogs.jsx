@@ -1,50 +1,53 @@
 import React from 'react';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
-import style from './Dialogs.module.css'
-import {Field, reduxForm} from "redux-form";
+import s from './Dialogs.module.css'
+import {reset, Field, reduxForm} from "redux-form";
 import {maxLength, required} from "../../utils/validators/validators";
 import {Elem} from "../common/FormControls/FormControls";
 
-
 const Dialogs = (props) => {
-    let newDialogs = props.state.dialogs.map ( dialog => <Dialog name={dialog.name} agentId={dialog.agentId}/>);
-    let newMessage = props.state.messages.map ( message => <Message message={message.message}/>);
-    let newMessageText = props.state.newMessageText;
 
-    let onUpdateMessageText = (e) => {
-        props.updateNewMessage(e.target.value);
-    };
+    let newDialogs = props.state.dialogs.map ( dialog => <Dialog key={dialog.id}
+                                                                 name={dialog.name}
+                                                                 agentId={dialog.agentId} />);
+    let newMessage = props.state.messages.map ( message => <Message key={message.id}
+                                                                    agentId={message.agentId}
+                                                                    message={message.message}
+                                                                    userId ={props.userId} />);
+
     let onAddMessage = (dataForm) => {
-        props.addNewMessage(dataForm.textMessage);
+        props.addNewMessage(dataForm.textMessage, props.userId);
+
     };
 
     return (
-        <div className={style.dialogs}>
+        <div className={s.dialogs}>
             <div>
-                {newDialogs}
+                { newDialogs }
             </div>
-            <div>
-                {newMessage}
+            <div className={s.messages}>
+                { newMessage }
             </div>
-            <div className={style.answer}>
+            <div className={s.answer}>
                 <NewMessageReduxForm onSubmit={onAddMessage}/>
             </div>
-
 
         </div>
     )
 }
 
-const maxLength15 = maxLength(15)
+const maxLength30 = maxLength(30)
 const Textarea2 = Elem("textarea")
 
 const NewMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <Field name={"textMessage"}
+                   rows={'3'}
+                   placeholder={'Write a message...'}
                    component={Textarea2}
-                   validate={[required, maxLength15]}
+                   validate={[required, maxLength30]}
             />
             <div>
                 <button> send </button>
@@ -53,7 +56,14 @@ const NewMessageForm = (props) => {
     )
 }
 
-const NewMessageReduxForm = reduxForm({form: "newMessage"})(NewMessageForm);
+const afterSubmit = (result, dispatch) =>
+    dispatch(reset('newMessage'));
+
+const NewMessageReduxForm = reduxForm({
+    form: 'newMessage',
+    onSubmitSuccess: afterSubmit,
+})(NewMessageForm);
+
 
 
 export default Dialogs;

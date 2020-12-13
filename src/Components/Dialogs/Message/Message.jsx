@@ -1,12 +1,16 @@
 import React from 'react';
-
+import s from './Message.module.css'
+import cn from 'classnames'
 const Message = (props) => {
+
+
     return (
-        <div>
+
+        <span className={ cn(s['message'], { [s['owner']]: props.agentId === props.userId} ) }>
             {props.message}
-        </div>
-        
+        </span>
     )
+
 }
 
 export default Message;

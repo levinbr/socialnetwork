@@ -1,8 +1,30 @@
 .dialogs {
-    padding:10px;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
 .answer {
-    grid-column: 2/3;
+    grid-column: 1/3;
+    margin: 10px 0;
+}
+.answer span {
+    color: red;
+}
+textarea {
+    resize: vertical;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: auto;
+
+}
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2px 0px 2px 12px;
+    padding: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    border-radius: 5px;
 }

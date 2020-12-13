@@ -23,13 +23,14 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
+                id: Math.floor(Math.random() * Math.floor(10000)),
                 message: action.text,
                 likes:'0'
             };
             return {
                 ...state,
                 newPostText:'',
-                myPosts: [...state.myPosts, newPost]
+                myPosts: [ ...state.myPosts.reverse(), newPost].reverse()
             };
         case DELETE_POST:
             return {
